@@ -51,6 +51,9 @@ class TopicsController extends AppController{
 
         $topic = $this->Topics->newEntity();
 
+        $topic->created = date("Y-m-d H:i:s");
+        $topic->modified = date("Y-m-d H:i:s");
+
         if ($this->request->is('post')) {
 
             $topic = $this->Topics->patchEntity($topic, $this->request->data);
@@ -75,6 +78,9 @@ class TopicsController extends AppController{
 
     {
         $topic = $this->Topics->get($id);
+
+//        $topic->created = date("Y-m-d H:i:s");
+        $topic->modified = date("Y-m-d H:i:s");
 
         if ($this->request->is(['post', 'put'])) {
 
